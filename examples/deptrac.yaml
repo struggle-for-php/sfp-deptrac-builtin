@@ -22,7 +22,6 @@ deptrac:
       collectors:
         - type: className
           regex: Psr\\Http\\Server\\RequestHandlerInterface
-
     - name: Action
       collectors:
         - type: implements
@@ -35,7 +34,7 @@ deptrac:
       collectors:
         - type: className
           regex: Foo\\Entity\\.*
-    - name: Response Output
+    - name: Sending Raw HTTP
       collectors:
         - type: functionName
           value: .*header.*
@@ -43,6 +42,7 @@ deptrac:
   ruleset:
     Psr\Http\Server\RequestHandlerInterface:
       - Psr\Http\Message
+      # - Sending Raw HTTP
     Action:
       - Psr\Http\Message
       - Psr\Http\Server\RequestHandlerInterface

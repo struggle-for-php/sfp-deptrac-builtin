@@ -17,6 +17,6 @@ final class UserShowAction implements RequestHandlerInterface
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        \header("aaa");
+        \header('Location: http://www.example.com/');
     }
 }
