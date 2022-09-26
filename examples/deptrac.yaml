@@ -22,6 +22,10 @@ deptrac:
       collectors:
         - type: className
           regex: Psr\\Http\\Server\\RequestHandlerInterface
+    - name: Laminas\HttpHandlerRunner\Emitter\EmitterInterface implements
+      collectors:
+        - type: implements
+          implements: Laminas\HttpHandlerRunner\Emitter\EmitterInterface
     - name: Action
       collectors:
         - type: implements
@@ -42,7 +46,9 @@ deptrac:
   ruleset:
     Psr\Http\Server\RequestHandlerInterface:
       - Psr\Http\Message
-      # - Sending Raw HTTP
+    Laminas\HttpHandlerRunner\Emitter\EmitterInterface implements:
+      - Psr\Http\Message
+      - Sending Raw HTTP
     Action:
       - Psr\Http\Message
       - Psr\Http\Server\RequestHandlerInterface
