@@ -48,7 +48,6 @@ final class BuiltinFunctionCallDependencyEmitter implements DependencyEmitterInt
                 if (null !== $astMap->getFunctionReferenceForToken($token)) {
                     continue;
                 }
-                var_dump($token);
 
                 if ('header()' !== $token->toString()) {
                     continue;
