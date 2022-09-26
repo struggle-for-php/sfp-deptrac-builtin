@@ -15,7 +15,6 @@ use Qossmic\Deptrac\Core\Dependency\DependencyList;
 use Qossmic\Deptrac\Core\Dependency\Emitter\DependencyEmitterInterface;
 
 use function assert;
-use function var_dump;
 
 final class BuiltinFunctionCallDependencyEmitter implements DependencyEmitterInterface
 {
