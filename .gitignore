@@ -1,3 +1,8 @@
 /vendor
 /.phpcs-cache
 /.phpunit.result.cache
+.deptrac.cache
+
+# examples
+/examples/vendor
+/examples/.deptrac.cache

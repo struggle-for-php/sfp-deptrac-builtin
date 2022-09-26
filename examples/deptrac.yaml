@@ -1,0 +1,52 @@
+services:
+  - class: Sfp\Deptrac\Builtin\Dependency\Emitter\BuiltinFunctionCallDependencyEmitter
+    autowire: true
+    tags:
+      - {name: dependency_emitter, key: 'function_call'}
+
+deptrac:
+  paths:
+    - '%depfileDirectory%/src/'
+    - '%depfileDirectory%/vendor/'
+  analyser:
+    types:
+      - class
+      - use
+      - function_call
+  layers:
+    - name: Psr\Http\Message
+      collectors:
+        - type: className
+          regex: Psr\\Http\\Message\\.*
+    - name: Psr\Http\Server\RequestHandlerInterface
+      collectors:
+        - type: className
+          regex: Psr\\Http\\Server\\RequestHandlerInterface
+
+    - name: Action
+      collectors:
+        - type: implements
+          implements: Psr\Http\Server\RequestHandlerInterface
+    - name: Repository
+      collectors:
+        - type: className
+          regex: Foo\\Repository\\.*Repository
+    - name: Entity
+      collectors:
+        - type: className
+          regex: Foo\\Entity\\.*
+    - name: Response Output
+      collectors:
+        - type: functionName
+          value: .*header.*
+
+  ruleset:
+    Psr\Http\Server\RequestHandlerInterface:
+      - Psr\Http\Message
+    Action:
+      - Psr\Http\Message
+      - Psr\Http\Server\RequestHandlerInterface
+      - Entity
+      - Repository
+    Repository:
+      - Entity

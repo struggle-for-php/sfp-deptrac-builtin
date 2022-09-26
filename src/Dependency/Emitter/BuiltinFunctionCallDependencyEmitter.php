@@ -48,10 +48,6 @@ final class BuiltinFunctionCallDependencyEmitter implements DependencyEmitterInt
                     continue;
                 }
 
-                if ('header()' !== $token->toString()) {
-                    continue;
-                }
-
                 $dependencyList->addDependency(
                     new Dependency(
                         $reference->getToken(),
