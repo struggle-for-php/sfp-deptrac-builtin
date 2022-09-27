@@ -14,7 +14,10 @@ use Qossmic\Deptrac\Core\Dependency\Dependency;
 use Qossmic\Deptrac\Core\Dependency\DependencyList;
 use Qossmic\Deptrac\Core\Dependency\Emitter\DependencyEmitterInterface;
 
+use function array_reverse;
 use function assert;
+use function explode;
+use function in_array;
 
 final class OptInBuiltinFunctionCallDependencyEmitter implements DependencyEmitterInterface
 {
@@ -23,7 +26,7 @@ final class OptInBuiltinFunctionCallDependencyEmitter implements DependencyEmitt
 
     public function __construct(array $supports = ['header'], bool $fallbackGlobal = true)
     {
-        $this->supports = $supports;
+        $this->supports       = $supports;
         $this->fallbackGlobal = $fallbackGlobal;
     }
 
@@ -53,13 +56,14 @@ final class OptInBuiltinFunctionCallDependencyEmitter implements DependencyEmitt
                 $token = $dependency->getToken();
                 assert($token instanceof FunctionLikeToken);
 
-                if (null === $astMap->getFunctionReferenceForToken($token) &&
-                    ! in_array($token->toString(), $this->supports, true)) {
-                    
+                if (
+                    null === $astMap->getFunctionReferenceForToken($token) &&
+                    ! in_array($token->toString(), $this->supports, true)
+                ) {
                     if (! $this->fallbackGlobal) {
                         continue;
                     }
-                    
+
                     // fallback check. e.g. `Foo\Action\setcookie()`
                     [$function] = array_reverse(explode('\\', $token->toString()));
                     if (! in_array($function, $this->supports, true)) {

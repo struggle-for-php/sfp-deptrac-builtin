@@ -1,14 +1,18 @@
 <?php
 
-namespace Foo;
-use SomeUse;
-use function header;
+declare(strict_types=1);
 
-function test(?SomeParam $someParam, $lala): ?SomeClass
+namespace Foo;
+
+use function header;
+use function setcookie;
+
+function test(?SomeParam $someParam, ?bool $lala): ?SomeClass
 {
 }
 
-function testAnonymousClass() {
+function testAnonymousClass()
+{
     test(null, null);
     header("aaa");
     setcookie('aaa', 0);

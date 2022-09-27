@@ -20,7 +20,7 @@ final class OptInBuiltinFunctionCallDependencyEmitterTest extends TestCase
     {
         $deps = $this->getEmittedDependencies(
             new OptInBuiltinFunctionCallDependencyEmitter(['header()', 'setcookie()']),
-            __DIR__.'/Fixtures/Bar.php'
+            __DIR__ . '/Fixtures/Bar.php'
         );
 
         self::assertCount(3, $deps);
@@ -30,11 +30,11 @@ final class OptInBuiltinFunctionCallDependencyEmitterTest extends TestCase
         self::assertContains('Foo\testAnonymousClass():14 on Foo\setcookie()', $deps);
     }
 
-    public function testApplyDependencies_without_fallback(): void
+    public function testApplyDependenciesWithoutFallback(): void
     {
         $deps = $this->getEmittedDependencies(
             new OptInBuiltinFunctionCallDependencyEmitter(['header()', 'setcookie()'], false),
-            __DIR__.'/Fixtures/Bar.php'
+            __DIR__ . '/Fixtures/Bar.php'
         );
 
         self::assertCount(2, $deps);

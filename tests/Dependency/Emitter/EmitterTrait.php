@@ -16,6 +16,9 @@ use Qossmic\Deptrac\Core\Dependency\DependencyList;
 use Qossmic\Deptrac\Core\Dependency\Emitter\DependencyEmitterInterface;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 
+use function array_map;
+use function sprintf;
+
 trait EmitterTrait
 {
     /**
@@ -40,7 +43,8 @@ trait EmitterTrait
 
         return array_map(
             static function (DependencyInterface $d) {
-                return sprintf('%s:%d on %s',
+                return sprintf(
+                    '%s:%d on %s',
                     $d->getDepender()->toString(),
                     $d->getFileOccurrence()->getLine(),
                     $d->getDependent()->toString()
