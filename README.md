@@ -39,16 +39,17 @@ $ ./vendor/bin/deptrac analyse
  -------------------- -----
  ```
 
- ## Q&A
+## Q&A
 
-Q. Why not use PHPCS `forbiddenFunctionNames` ?
-A. IMO, `forbiddenFunctionNames` is only should be used for dangerous function (its own) or alias function.
+- Q. Why not use PHPCS `forbiddenFunctionNames` ?
+  - A. IMO, `forbiddenFunctionNames` is only should be used for dangerous function (its own) or alias function.
 Reason of forbidden `header()` usage in application is layer problem.
 
-Q. When called `header()`, then should be called `exit()` on same scope, is it not ?
-A. Maybe..
+- Q. When called `header()`, then should be called `exit()` on same scope, is it not ?
+  - A. Maybe..
 
 
 ## Inspired 
 This extension is developed inspired from this talk.
+
 https://speakerdeck.com/asumikam/phpcon-2022
