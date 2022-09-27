@@ -16,6 +16,8 @@
     <file>src</file>
     <file>tests</file>
 
+    <exclude-pattern>tests/Dependency/Emitter/Fixtures/*</exclude-pattern>
+
     <!-- Include all rules from Laminas Coding Standard -->
     <rule ref="LaminasCodingStandard"/>
 
