@@ -1,8 +1,12 @@
+parameters:
+  supports_function: ['header()', 'setcookie()']
+
 services:
-  - class: Sfp\Deptrac\Builtin\Dependency\Emitter\BuiltinFunctionCallDependencyEmitter
-    autowire: true
+  Sfp\Deptrac\Builtin\Dependency\Emitter\OptInBuiltinFunctionCallDependencyEmitter:
     tags:
       - {name: dependency_emitter, key: 'function_call'}
+    arguments: 
+      [ '%supports_function%']
 
 deptrac:
   paths:
@@ -41,7 +45,7 @@ deptrac:
     - name: Sending Raw HTTP
       collectors:
         - type: functionName
-          value: .*header.*
+          value: .*(header|setcookie).*
 
   ruleset:
     Psr\Http\Server\RequestHandlerInterface:

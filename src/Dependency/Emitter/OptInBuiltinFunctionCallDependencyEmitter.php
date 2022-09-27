@@ -16,11 +16,20 @@ use Qossmic\Deptrac\Core\Dependency\Emitter\DependencyEmitterInterface;
 
 use function assert;
 
-final class BuiltinFunctionCallDependencyEmitter implements DependencyEmitterInterface
+final class OptInBuiltinFunctionCallDependencyEmitter implements DependencyEmitterInterface
 {
+    private array $supports;
+    private bool $fallbackGlobal;
+
+    public function __construct(array $supports = ['header'], bool $fallbackGlobal = true)
+    {
+        $this->supports = $supports;
+        $this->fallbackGlobal = $fallbackGlobal;
+    }
+
     public function getName(): string
     {
-        return 'BuiltinFunctionCallDependencyEmitter';
+        return 'OptInBuiltinFunctionCallDependencyEmitter';
     }
 
     public function applyDependencies(AstMap $astMap, DependencyList $dependencyList): void
@@ -44,8 +53,18 @@ final class BuiltinFunctionCallDependencyEmitter implements DependencyEmitterInt
                 $token = $dependency->getToken();
                 assert($token instanceof FunctionLikeToken);
 
-                if (null !== $astMap->getFunctionReferenceForToken($token)) {
-                    continue;
+                if (null === $astMap->getFunctionReferenceForToken($token) &&
+                    ! in_array($token->toString(), $this->supports, true)) {
+                    
+                    if (! $this->fallbackGlobal) {
+                        continue;
+                    }
+                    
+                    // fallback check. e.g. `Foo\Action\setcookie()`
+                    [$function] = array_reverse(explode('\\', $token->toString()));
+                    if (! in_array($function, $this->supports, true)) {
+                        continue;
+                    }
                 }
 
                 $dependencyList->addDependency(

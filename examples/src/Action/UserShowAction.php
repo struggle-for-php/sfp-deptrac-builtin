@@ -17,6 +17,7 @@ final class UserShowAction implements RequestHandlerInterface
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
+        setcookie("a", 0);
         \header('Location: http://www.example.com/');
     }
 }
