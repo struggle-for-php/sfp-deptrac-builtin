@@ -40,5 +40,9 @@
       "platform": {
         "php": "8.1.99"
     }
+  },
+  "scripts": {
+    "bin": "echo 'bin not installed'",
+    "post-install-cmd": ["@composer bin deptrac-src install --ansi"]
   }
 }
