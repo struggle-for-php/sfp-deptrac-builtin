@@ -6,3 +6,5 @@
 # examples
 /examples/vendor
 /examples/.deptrac.cache
+
+/vendor-bin/**/vendor/

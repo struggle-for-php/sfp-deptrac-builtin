@@ -1,0 +1,5 @@
+{
+    "require": {
+        "qossmic/deptrac": "0.24.0"
+    }
+}
