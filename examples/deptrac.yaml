@@ -8,6 +8,11 @@ services:
     arguments: 
       [ '%supports_function%']
 
+  Qossmic\Deptrac\Core\Ast\Parser\Extractors\FunctionCallResolver:
+    tags:
+      - {name: reference_extractors}
+    autowire: true
+
 deptrac:
   paths:
     - '%depfileDirectory%/src/'
