@@ -1,5 +1,5 @@
 {
     "require": {
-        "qossmic/deptrac": "0.24.0"
+        "qossmic/deptrac": "^1"
     }
 }

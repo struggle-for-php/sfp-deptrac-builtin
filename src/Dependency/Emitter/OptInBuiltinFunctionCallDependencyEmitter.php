@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Sfp\Deptrac\Builtin\Dependency\Emitter;
 
+use Qossmic\Deptrac\Contract\Ast\DependencyType;
 use Qossmic\Deptrac\Core\Ast\AstMap\AstMap;
 use Qossmic\Deptrac\Core\Ast\AstMap\ClassLike\ClassLikeReference;
-use Qossmic\Deptrac\Core\Ast\AstMap\DependencyToken;
 use Qossmic\Deptrac\Core\Ast\AstMap\File\FileReference;
 use Qossmic\Deptrac\Core\Ast\AstMap\FunctionLike\FunctionLikeReference;
 use Qossmic\Deptrac\Core\Ast\AstMap\FunctionLike\FunctionLikeToken;
@@ -48,12 +48,12 @@ final class OptInBuiltinFunctionCallDependencyEmitter implements DependencyEmitt
     private function createDependenciesForReferences(array $references, AstMap $astMap, DependencyList $dependencyList): void
     {
         foreach ($references as $reference) {
-            foreach ($reference->getDependencies() as $dependency) {
-                if (DependencyToken::UNRESOLVED_FUNCTION_CALL !== $dependency->getType()) {
+            foreach ($reference->dependencies as $dependency) {
+                if (DependencyType::UNRESOLVED_FUNCTION_CALL !== $dependency->type) {
                     continue;
                 }
 
-                $token = $dependency->getToken();
+                $token = $dependency->token;
                 assert($token instanceof FunctionLikeToken);
 
                 if (
@@ -74,8 +74,9 @@ final class OptInBuiltinFunctionCallDependencyEmitter implements DependencyEmitt
                 $dependencyList->addDependency(
                     new Dependency(
                         $reference->getToken(),
-                        $dependency->getToken(),
-                        $dependency->getFileOccurrence()
+                        $dependency->token,
+                        $dependency->fileOccurrence,
+                        $dependency->type
                     )
                 );
             }
