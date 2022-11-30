@@ -5,7 +5,7 @@
         "laminas/laminas-diactoros": "^2.17"
     },
     "require-dev": {
-        "qossmic/deptrac-shim": "^0.24.0"
+        "qossmic/deptrac-shim": "^1"
     },
     "autoload": {
         "psr-4": {
