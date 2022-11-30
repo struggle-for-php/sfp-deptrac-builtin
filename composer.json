@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-    "php": "^7.4 || ~8.0.0 || ~8.1.0",
+    "php": "~8.1.0",
     "qossmic/deptrac-shim": "^1"
   },
   "require-dev": {
@@ -39,6 +39,12 @@
     },
       "platform": {
         "php": "8.1.99"
+    }
+  },
+  "extra": {
+    "bamarni-bin": {
+        "bin-links": false,
+        "forward-command": true
     }
   },
   "scripts": {
