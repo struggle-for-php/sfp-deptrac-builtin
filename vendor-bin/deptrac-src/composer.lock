@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9edc6d31b6d7c5ae9659e0ab58785bff",
+    "content-hash": "26184cebc442cf545a51090f3427d7d9",
     "packages": [
         {
             "name": "composer/pcre",
@@ -608,16 +608,16 @@
         },
         {
             "name": "qossmic/deptrac",
-            "version": "1.0.0",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/qossmic/deptrac.git",
-                "reference": "7b2bdc95d974bef51d5ea4ba6f4fd371b0226fd0"
+                "reference": "a63284ecacf3f7d992a0c35f0ef3e5d3b5d1bf0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/qossmic/deptrac/zipball/7b2bdc95d974bef51d5ea4ba6f4fd371b0226fd0",
-                "reference": "7b2bdc95d974bef51d5ea4ba6f4fd371b0226fd0",
+                "url": "https://api.github.com/repos/qossmic/deptrac/zipball/a63284ecacf3f7d992a0c35f0ef3e5d3b5d1bf0f",
+                "reference": "a63284ecacf3f7d992a0c35f0ef3e5d3b5d1bf0f",
                 "shasum": ""
             },
             "require": {
@@ -677,9 +677,9 @@
             "description": "Deptrac is a static code analysis tool that helps to enforce rules for dependencies between software layers.",
             "support": {
                 "issues": "https://github.com/qossmic/deptrac/issues",
-                "source": "https://github.com/qossmic/deptrac/tree/1.0.0"
+                "source": "https://github.com/qossmic/deptrac/tree/1.0.2"
             },
-            "time": "2022-11-01T12:10:45+00:00"
+            "time": "2022-12-02T11:47:03+00:00"
         },
         {
             "name": "symfony/config",
