@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "12b0b07d91f371498cd516bf01b00e92",
+    "content-hash": "2dab4fb4ed1ed8b8415c61549282eddc",
     "packages": [
         {
             "name": "qossmic/deptrac-shim",
@@ -4194,11 +4194,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "~8.1.0"
+        "php": "~8.1.0 || ~8.2.0"
     },
     "platform-dev": [],
-    "platform-overrides": {
-        "php": "8.1.99"
-    },
     "plugin-api-version": "2.3.0"
 }
