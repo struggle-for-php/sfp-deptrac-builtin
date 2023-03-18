@@ -36,6 +36,9 @@
     "allow-plugins": {
       "dealerdirect/phpcodesniffer-composer-installer": true,
       "bamarni/composer-bin-plugin": true
+    },
+    "platform": {
+      "php": "8.1.99"
     }
   },
   "extra": {
