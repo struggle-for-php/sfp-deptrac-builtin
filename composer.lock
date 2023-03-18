@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f6d65e3a618b6331b16b449856c87c86",
+    "content-hash": "53e1765661ddee030f27c2de49dea589",
     "packages": [
         {
             "name": "qossmic/deptrac-shim",
